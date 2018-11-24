@@ -32,15 +32,6 @@ import static org.junit.Assert.assertNotEquals;
  */
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
-    @Test
-    public void useAppContext() {
-        // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getTargetContext();
-        Log.d("Testa", appContext.getPackageName());
-        assertEquals("com.udacity.gradle.builditbigger.free", appContext.getPackageName());
-
-    }
-
 
     @Test
     public void testAsyncTask() throws InterruptedException {

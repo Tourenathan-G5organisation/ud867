@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v4.util.Pair;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
@@ -18,10 +20,25 @@ import java.io.IOException;
 public class EndpointsAsyncTask extends AsyncTask<String, Void, String> {
     private static MyApi myApiService = null;
     private Context context;
+    ProgressBar progressBar;
 
     public EndpointsAsyncTask(Context context){
         this.context = context;
     }
+
+    public EndpointsAsyncTask(Context context, ProgressBar pgBar){
+        this.context = context;
+        progressBar = pgBar;
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        if (progressBar != null){
+            progressBar.setVisibility(View.VISIBLE);
+        }
+    }
+
     @Override
     protected String doInBackground(String... params) {
         if(myApiService == null) {  // Only do this once
@@ -51,6 +68,9 @@ public class EndpointsAsyncTask extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
+        if (progressBar != null){
+            progressBar.setVisibility(View.GONE);
+        }
          Intent intent = new Intent(context, DisplayActivity.class);
         intent.putExtra(Intent.EXTRA_TEXT, result);
         context.startActivity(intent);

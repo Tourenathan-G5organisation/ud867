@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void tellJoke(View view) {
 
-        new EndpointsAsyncTask(this).execute();
+        new EndpointsAsyncTask(this, (ProgressBar) findViewById(R.id.progressBar2)).execute();
         //Toast.makeText(this, JokeProvider.getNextJoke(), Toast.LENGTH_SHORT).show();
     }
 
