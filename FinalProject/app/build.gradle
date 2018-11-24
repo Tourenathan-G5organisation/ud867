@@ -59,7 +59,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     endpointsServer project(path: ':backend', configuration: 'endpoints')
     implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.google.android.gms:play-services-ads:11.8.0'
+    freeImplementation 'com.google.android.gms:play-services-ads:11.8.0'
     implementation('com.google.api-client:google-api-client:1.23.0') {
         exclude module: 'guava-jdk5'
     }
