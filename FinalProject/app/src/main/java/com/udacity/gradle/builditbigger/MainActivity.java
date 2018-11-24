@@ -42,9 +42,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        /*Intent intent = new Intent(this, DisplayActivity.class);
-        intent.putExtra(Intent.EXTRA_TEXT, JokeProvider.getNextJoke());
-        startActivity(intent);*/
+
         new EndpointsAsyncTask(this).execute();
         //Toast.makeText(this, JokeProvider.getNextJoke(), Toast.LENGTH_SHORT).show();
     }
